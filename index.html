@@ -4,19 +4,37 @@
         <title>Teste</title>
     </head>
     <body>
-        <h3>Prova Objetiva:</h3>
-        <input id="nota1" type="number">
-        <h3>Nota de Professor:</h3>
-        <input id="nota2" type="number">
-        <h3>Avaliação Dissertativa:</h3>
-        <input id="nota3" type="number">
-        <h3>Simulado:</h3>
-        <input id="nota4" type="number">
-
-        <button id="submit" onclick="calcular()">Calcular</button>
-        <h2 id="resultado"></h2>
+        <div class="form">
+            <h3>Prova Objetiva:</h3>
+            <input id="nota1" type="number">
+            <h3>Nota de Professor:</h3>
+            <input id="nota2" type="number">
+            <h3>Avaliação Dissertativa:</h3>
+            <input id="nota3" type="number">
+            <h3>Simulado:</h3>
+            <input id="nota4" type="number">
+    
+            <button id="submit" onclick="calcular()">Calcular</button>
+            <h2 id="resultado"></h2>
+        </div>
     </body>
-    <style></style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .form {
+            width: 100vw;
+            height: 100vh;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
     <script>
         function calcular() {
             let nota1 = Number(document.getElementById("nota1").value)
