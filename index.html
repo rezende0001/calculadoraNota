@@ -43,6 +43,7 @@
             let nota4 = Number(document.getElementById("nota4").value)
 
             if (nota1 > 10 | nota2 > 10 | nota3 > 10 | nota4 > 10) {
+                document.getElementById('resultado').style.backgroundColor = "red"
                 return document.getElementById('resultado').textContent = 'Você inseriu um nota maior que 10.'
             }
     
