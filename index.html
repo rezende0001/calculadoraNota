@@ -43,15 +43,17 @@
             let nota4 = Number(document.getElementById("nota4").value)
 
             if (nota1 > 10 | nota2 > 10 | nota3 > 10 | nota4 > 10) {
-                document.getElementById('resultado').style.backgroundColor = "red"
-                return document.getElementById('resultado').textContent = 'Você inseriu um nota maior que 10.'
+                document.getElementById('resultado').style.backgroundColor = "orange"
+                return document.getElementById('resultado').textContent = '⚠ Você inseriu um nota maior que 10.'
             }
     
             let soma = ((nota1 * 0.30) + (nota2 * 0.20) + (nota3 * 0.25) + (nota4 * 0.25))
             if (soma >= 6) {
-                document.getElementById('resultado').textContent = `Parabéns você passou, sua nota é ${soma}.`
+                document.getElementById('resultado').style.backgroundColor = "green"
+                document.getElementById('resultado').textContent = `✅ Parabéns você passou, sua nota é ${soma}.`
             } else {
-                document.getElementById('resultado').textContent = `Infelizmente você não passou, sua nota é ${soma}.`
+                document.getElementById('resultado').style.backgroundColor = "red"
+                document.getElementById('resultado').textContent = `❌ Infelizmente você não passou, sua nota é ${soma}.`
             }
         }
     </script>
