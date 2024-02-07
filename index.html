@@ -1,91 +1,119 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Calculadora de Nota Eniac</title>
-        <meta name="viewport" content="width=device-width, initial-scale=3.0">
-    </head>
-    <body>
-        <div class="container">
-            <div class="navbar">
-                <a href="#home">Calculadora de Nota</a>
-                <a href="#about">Sobre</a>
-            </div>
-            <div class="form">
-                <h3>Prova Objetiva:</h3>
-                <input id="nota1" type="number" value='0'>
-                <h3>Nota de Professor:</h3>
-                <input id="nota2" type="number" value='0'>
-                <h3>Avaliação Dissertativa:</h3>
-                <input id="nota3" type="number" value='0'>
-                <h3>Simulado:</h3>
-                <input id="nota4" type="number" value='0'>
-        
-                <button id="submit" onclick="calcular()">Calcular</button>
-                <button id="redirect" onclick="redirectEniac()">Portal do Aluno</button>
-                <h2 id="resultado"></h2>
-            </div>
-        </div>
-    </body>
+<head>
+    <title>Calculadora de Nota Eniac</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         
         body {
             font-family: Arial, Helvetica, sans-serif;  
-            font-size: 12px;       
-            color: #fff;
+            font-size: 16px;       
+            color: #333;
             background: rgb(35, 75, 255);
-            
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .navbar {
             overflow: hidden;
             background-color: #333;
-            display: flex; /* Usando flexbox */
-            justify-content: center; /* Centralizando os itens horizontalmente */ 
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
         /* Estilizando os links na barra de navegação */
         .navbar a {
-            float: left;
-            display: block;
-            color: rgb(255, 230, 0);
-            text-align: center;
-            padding: 14px 20px;
+            color: #fff;
             text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
         }
 
         /* Alterando a cor dos links na barra de navegação ao passar o mouse */
         .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #555;
         }
 
         .form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            margin: 10px;
             gap: 10px;
-            padding: 100px;
         }
 
-        .form button {
-            width: 100px;
-            height: 30px;
-            background: rgb(255, 230, 0);
-            border-radius: 3px;
-            border: none;
+        .form h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
         }
 
         .form input {
-            color: rgb(0, 0, 0);
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
         }
-        
+
+        .form button {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(255, 230, 0);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form button:hover {
+            background-color: rgb(255, 200, 0);
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
     </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="#home">Calculadora de Nota</a>
+            <a href="#about">Sobre</a>
+        </div>
+        <div class="form">
+            <h3>Prova Objetiva:</h3>
+            <input id="nota1" type="number" value='0'>
+            <h3>Nota de Professor:</h3>
+            <input id="nota2" type="number" value='0'>
+            <h3>Avaliação Dissertativa:</h3>
+            <input id="nota3" type="number" value='0'>
+            <h3>Simulado:</h3>
+            <input id="nota4" type="number" value='0'>
+    
+            <button id="submit" onclick="calcular()">Calcular</button>
+            <button id="redirect" onclick="redirectEniac()">Portal do Aluno</button>
+            <h2 id="resultado"></h2>
+        </div>
+    </div>
+
     <script>
         function redirectEniac() {
             window.location.replace("https://lrk7vn-prd-portal.totvscloud.com.br:8081/web/app/edu/PortalEducacional/")
@@ -105,11 +133,12 @@
             let soma = ((nota1 * 0.30) + (nota2 * 0.20) + (nota3 * 0.25) + (nota4 * 0.25))
             if (soma >= 6) {
                 document.getElementById('resultado').style.backgroundColor = "green"
-                document.getElementById('resultado').textContent = `✅ Parabéns você passou, sua nota é ${soma}.`
+                document.getElementById('resultado').textContent = `✅ Parabéns você passou, sua nota é ${soma.toFixed(2)}.`
             } else {
                 document.getElementById('resultado').style.backgroundColor = "red"
-                document.getElementById('resultado').textContent = `❌ Infelizmente você não passou, sua nota é ${soma}.`
+                document.getElementById('resultado').textContent = `❌ Infelizmente você não passou, sua nota é ${soma.toFixed(2)}.`
             }
         }
     </script>
+</body>
 </html>
