@@ -5,18 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="form">
-            <h3>Prova Objetiva:</h3>
-            <input id="nota1" type="number" value='0'>
-            <h3>Nota de Professor:</h3>
-            <input id="nota2" type="number" value='0'>
-            <h3>Avaliação Dissertativa:</h3>
-            <input id="nota3" type="number" value='0'>
-            <h3>Simulado:</h3>
-            <input id="nota4" type="number" value='0'>
-    
-            <button id="submit" onclick="calcular()">Calcular</button>
-            <h2 id="resultado"></h2>
+        <div class="container">
+            <div class="navbar">
+                <a href="#home">Calculadora de Nota</a>
+                <a href="#about">Sobre</a>
+            </div>
+            <div class="form">
+                <h3>Prova Objetiva:</h3>
+                <input id="nota1" type="number" value='0'>
+                <h3>Nota de Professor:</h3>
+                <input id="nota2" type="number" value='0'>
+                <h3>Avaliação Dissertativa:</h3>
+                <input id="nota3" type="number" value='0'>
+                <h3>Simulado:</h3>
+                <input id="nota4" type="number" value='0'>
+        
+                <button id="submit" onclick="calcular()">Calcular</button>
+                <button id="redirect" onclick="redirectEniac()">Portal do Aluno</button>
+                <h2 id="resultado"></h2>
+            </div>
         </div>
     </body>
     <style>
@@ -24,17 +31,66 @@
             margin: 0;
             padding: 0;
         }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;  
+            font-size: 12px;       
+            color: #fff;
+            background: rgb(35, 75, 255);
+            
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            display: flex; /* Usando flexbox */
+            justify-content: center; /* Centralizando os itens horizontalmente */ 
+        }
+
+        /* Estilizando os links na barra de navegação */
+        .navbar a {
+            float: left;
+            display: block;
+            color: rgb(255, 230, 0);
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        /* Alterando a cor dos links na barra de navegação ao passar o mouse */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
 
         .form {
-            margin: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            margin: 10px;
             gap: 10px;
+            padding: 100px;
+        }
+
+        .form button {
+            width: 100px;
+            height: 30px;
+            background: rgb(255, 230, 0);
+            border-radius: 3px;
+            border: none;
+        }
+
+        .form input {
+            color: rgb(0, 0, 0);
         }
         
     </style>
     <script>
+        function redirectEniac() {
+            window.location.replace("https://lrk7vn-prd-portal.totvscloud.com.br:8081/web/app/edu/PortalEducacional/")
+        }
+
         function calcular() {
             let nota1 = Number(document.getElementById("nota1").value)
             let nota2 = Number(document.getElementById("nota2").value)
