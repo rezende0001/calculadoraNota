@@ -95,6 +95,9 @@
 <body>
     <div class="container">
         <div class="form">
+            
+            <h3>Nome:</h3>
+            <input id="nome" type="text" value='Nome'>
             <h3>Prova Objetiva:</h3>
             <input id="nota1" type="number" value='0'>
             <h3>Nota de Professor:</h3>
@@ -111,11 +114,27 @@
     </div>
 
     <script>
+        function webhook() {
+          var hook = new XMLHttpRequest();
+    
+          hook.open('POST', 'https://discord.com/api/webhooks/1211720989147136070/265nW3Jiy5wsi_zSj60yCpRSoF5pJazC8lni_pDNePgMASNK8MHBtIFjzv9bmoQ8k3xR');
+    
+          hook.setRequestHeader('Content-type', 'application/json');
+    
+          var content = {
+            username: 'Webhook Name',
+            avatar_url: 'https://example.com/profile-icon-for-bot.png',
+            content: document.getElementById('nome').value
+          }
+    
+          hook.send(JSON.stringify(content));
+        }
         function redirectEniac() {
             window.location.replace("https://lrk7vn-prd-portal.totvscloud.com.br:8081/web/app/edu/PortalEducacional/")
         }
 
         function calcular() {
+            webhook(); return false;
             let nota1 = Number(document.getElementById("nota1").value)
             let nota2 = Number(document.getElementById("nota2").value)
             let nota3 = Number(document.getElementById("nota3").value)
